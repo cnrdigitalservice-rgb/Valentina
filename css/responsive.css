@@ -1,0 +1,552 @@
+/**
+ * ============================================================
+ * RESPONSIVE DESIGN — INVITACIÓN XV AÑOS
+ * ============================================================
+ * Mobile-first responsive breakpoints
+ * 360px → 375px → 390px → 414px → 768px → 1024px → 1440px
+ * ============================================================
+ */
+
+/* ══════════════════════════════════════════════════════════════
+   EXTRA SMALL DEVICES (360px - 374px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 374px) {
+    .hero-name {
+        font-size: 3rem;
+    }
+
+    .hero-label {
+        font-size: 0.9rem;
+        letter-spacing: 5px;
+    }
+
+    .hero-label::before,
+    .hero-label::after {
+        width: 25px;
+        margin: 0 8px;
+    }
+
+    .hero-btn {
+        padding: 14px 30px;
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+
+    .countdown-item {
+        min-width: 65px;
+        padding: 15px 10px;
+    }
+
+    .countdown-number {
+        font-size: 2.2rem;
+    }
+
+    .floating-nav {
+        padding: 6px 10px;
+        gap: 2px;
+    }
+
+    .floating-nav a {
+        padding: 6px 8px;
+        font-size: 0.6rem;
+    }
+
+    .floating-nav a i {
+        font-size: 0.95rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+        flex-direction: row;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .parent-name {
+        font-size: 1.3rem;
+    }
+
+    .dresscode-grid {
+        gap: 25px;
+    }
+
+    .event-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SMALL DEVICES (375px - 413px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 375px) and (max-width: 413px) {
+    .hero-name {
+        font-size: 3.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+        flex-direction: row;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .event-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MEDIUM SMALL DEVICES (414px - 767px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 414px) and (max-width: 767px) {
+    .hero-name {
+        font-size: 4rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+        flex-direction: row;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .event-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE GENERAL (< 768px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 767px) {
+    :root {
+        --section-padding: 60px 16px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.88rem;
+    }
+
+    /* Hide desktop nav, show hamburger */
+    .floating-nav {
+        bottom: 80px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        border-radius: 20px;
+        padding: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        display: none;
+    }
+
+    .floating-nav.mobile-open {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+        animation: fadeInUp 0.3s ease;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Welcome photo */
+    .welcome-photo {
+        width: 200px;
+        height: 280px;
+    }
+
+    /* Countdown */
+    .countdown-grid {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 72px;
+    }
+
+    /* Parents divider → horizontal on mobile */
+    .parents-divider {
+        width: 60px;
+        height: 1px;
+    }
+
+    .parents-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Dresscode */
+    .dresscode-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Gift cards */
+    .gifts-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gift-card {
+        max-width: 280px;
+        width: 100%;
+    }
+
+    /* Map */
+    .map-container {
+        height: 200px;
+    }
+
+    /* Floating actions */
+    .floating-actions {
+        bottom: 80px;
+    }
+
+    /* Lightbox nav */
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .lightbox-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        top: 15px;
+        right: 15px;
+    }
+
+    /* Floral corners smaller on mobile */
+    .floral-corner {
+        width: 120px;
+        height: 120px;
+        opacity: 0.25;
+    }
+
+    /* Footer */
+    .footer-name {
+        font-size: 2rem;
+    }
+
+    /* Share modal */
+    .share-modal-content {
+        padding: 25px;
+    }
+
+    /* QR */
+    #qr-code {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TABLET (768px - 1023px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .hero-name {
+        font-size: 5rem;
+    }
+
+    .hero-content {
+        padding: 60px 40px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .welcome-photo {
+        width: 280px;
+        height: 380px;
+    }
+
+    .countdown-item {
+        min-width: 100px;
+        padding: 25px 20px;
+    }
+
+    .countdown-number {
+        font-size: 3.2rem;
+    }
+
+    .event-cards {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 650px;
+    }
+
+    .rsvp-form,
+    .guestbook-form {
+        max-width: 500px;
+    }
+
+    .floating-nav a {
+        padding: 10px 16px;
+        font-size: 0.7rem;
+    }
+
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAPTOP (1024px - 1439px)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .hero-name {
+        font-size: 5.5rem;
+    }
+
+    .section {
+        padding: 100px 40px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .welcome-photo {
+        width: 300px;
+        height: 400px;
+    }
+
+    .event-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-item {
+        min-width: 110px;
+        padding: 28px 22px;
+    }
+
+    .countdown-number {
+        font-size: 3.5rem;
+    }
+
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP (1440px+)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 1440px) {
+    .hero-name {
+        font-size: 6rem;
+    }
+
+    .hero-quote {
+        font-size: 1.1rem;
+    }
+
+    .section {
+        padding: 120px 60px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1100px;
+    }
+
+    .welcome-photo {
+        width: 320px;
+        height: 430px;
+    }
+
+    .event-cards {
+        max-width: 800px;
+    }
+
+    .countdown-item {
+        min-width: 120px;
+        padding: 30px 25px;
+    }
+
+    .countdown-number {
+        font-size: 3.8rem;
+    }
+
+    .timeline {
+        max-width: 700px;
+    }
+
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LANDSCAPE MODE (MOBILE)
+   ══════════════════════════════════════════════════════════════ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 30px;
+    }
+
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .hero-label {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+    }
+
+    .hero-quote {
+        margin: 10px 0 20px;
+        font-size: 0.85rem;
+    }
+
+    .hero-btn {
+        padding: 12px 30px;
+    }
+
+    .countdown-grid {
+        gap: 15px;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PREFERS REDUCED MOTION
+   ══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .floating-petals {
+        display: none;
+    }
+
+    #particles-canvas {
+        display: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DARK MODE SUPPORT (subtle)
+   ══════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+    /* Keep the light romantic theme, but slightly adjust for OLED */
+    /* The invitation should always look light/romantic */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PRINT STYLES
+   ══════════════════════════════════════════════════════════════ */
+@media print {
+    .hero {
+        min-height: auto;
+        page-break-after: always;
+    }
+
+    .floating-nav,
+    .nav-toggle,
+    .floating-actions,
+    .music-btn,
+    .floating-petals,
+    #particles-canvas,
+    .curtain-overlay,
+    .share-section {
+        display: none !important;
+    }
+
+    .main-content {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        padding: 30px 20px;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+}
