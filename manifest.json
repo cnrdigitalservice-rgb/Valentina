@@ -1,0 +1,20 @@
+{
+    "name": "XV Años de Melissa",
+    "short_name": "XV Melissa",
+    "description": "Invitación digital interactiva para los XV años de Melissa",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#F7EAF5",
+    "theme_color": "#E6D5F2",
+    "lang": "es",
+    "categories": ["social"],
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

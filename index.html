@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ═══════════════════════════════════════════════════════
+         XV AÑOS DE MELISSA — Invitación Digital Interactiva
+         ═══════════════════════════════════════════════════════ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO -->
+    <title>XV Años de Melissa — Invitación Digital</title>
+    <meta name="description" content="Estás cordialmente invitado(a) a celebrar los XV años de Melissa. Una noche para recordar, un sueño hecho realidad.">
+    <meta name="author" content="XV Años de Melissa">
+    <meta name="theme-color" content="#E6D5F2">
+
+    <!-- Open Graph (WhatsApp / Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="XV Años de Melissa">
+    <meta property="og:description" content="Estás cordialmente invitado(a) a celebrar los XV años de Melissa. Una noche para recordar, un sueño hecho realidad.">
+    <meta property="og:image" content="images/portada.jpg">
+    <meta property="og:url" content="https://tudominio.com/xv-melissa">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="XV Años de Melissa">
+    <meta name="twitter:description" content="Invitación digital de los XV años de Melissa.">
+    <meta name="twitter:image" content="images/portada.jpg">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="XV Melissa">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.1/sweetalert2.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PÉTALOS FLOTANTES
+         ═══════════════════════════════════════════════════════ -->
+    <div class="floating-petals" aria-hidden="true">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ANIMACIÓN DE APERTURA (CORTINA)
+         ═══════════════════════════════════════════════════════ -->
+    <div class="curtain-overlay" aria-hidden="true">
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         BOTÓN FLOTANTE DE MÚSICA
+         ═══════════════════════════════════════════════════════ -->
+    <button class="music-btn" id="music-toggle" aria-label="Reproducir o pausar música">
+        <span class="icon-play"><i class="fas fa-music"></i></span>
+        <span class="bars">
+            <span class="bar" style="height: 6px;"></span>
+            <span class="bar" style="height: 10px;"></span>
+            <span class="bar" style="height: 14px;"></span>
+            <span class="bar" style="height: 8px;"></span>
+        </span>
+    </button>
+
+    <!-- ═══════════════════════════════════════════════════════
+         1. PORTADA / HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+        <div class="hero-content">
+            <!-- Decoración superior -->
+            <div class="section-icon" style="margin-bottom: 15px;">
+                <i class="fas fa-crown" style="font-size: 1.5rem;"></i>
+            </div>
+
+            <span class="hero-label">XV Años</span>
+
+            <h1 class="hero-name">Melissa</h1>
+
+            <div class="gold-line" style="background: var(--rosa-pastel);"></div>
+
+            <p class="hero-quote">Una noche para recordar,
+un sueño hecho realidad.</p>
+
+            <button class="hero-btn" id="hero-open-btn">
+                <i class="fas fa-envelope-open"></i>
+                Abrir Invitación
+            </button>
+        </div>
+
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         CONTENIDO PRINCIPAL (oculto hasta abrir)
+         ═══════════════════════════════════════════════════════ -->
+    <main class="main-content">
+
+        <!-- ═══════════════════════════════════════════════════
+             2. MENSAJE DE BIENVENIDA
+             ═══════════════════════════════════════════════════ -->
+        <section class="section welcome-section" id="welcome">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-heart"></i>
+                </div>
+
+                <p class="welcome-text" data-aos="fade-up">
+                    Hay momentos en la vida
+que se convierten en recuerdos
+para toda la vida.
+                </p>
+
+                <p class="welcome-text-secondary" data-aos="fade-up" data-aos-delay="200">
+                    Hoy quiero compartir contigo
+uno de los momentos más importantes
+de mi vida.
+                </p>
+
+                <div class="welcome-photo" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="images/quinceanera.jpg" alt="Melissa - XV Años" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             3. CUENTA REGRESIVA
+             ═══════════════════════════════════════════════════ -->
+        <section class="section countdown-section" id="countdown">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="far fa-clock"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Faltan...</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <div class="countdown-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-days">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+
+                <div class="countdown-finished"></div>
+
+                <p class="event-date" style="margin-top: 25px; font-family: var(--font-heading); font-size: 1rem; color: var(--morado); letter-spacing: 2px;" data-aos="fade-up" data-aos-delay="400">
+                    15 de Noviembre de 2026
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             4. INFORMACIÓN DEL EVENTO
+             ═══════════════════════════════════════════════════ -->
+        <section class="section event-section" id="event">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-calendar-star" style="font-size: 1.8rem;"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Ceremonia & Recepción</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <div class="event-cards">
+                    <!-- Ceremonia -->
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="event-card-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3 class="event-card-title">Ceremonia</h3>
+                        <p class="event-card-detail">
+                            <i class="fas fa-place-of-worship"></i>
+                            <strong id="ceremony-place">Parroquia Santa María</strong>
+                        </p>
+                        <p class="event-card-detail">
+                            <i class="far fa-clock"></i>
+                            <span id="ceremony-time">6:00 PM</span>
+                        </p>
+                    </div>
+
+                    <!-- Recepción -->
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="event-card-icon">
+                            <i class="fas fa-champagne-glasses"></i>
+                        </div>
+                        <h3 class="event-card-title">Recepción</h3>
+                        <p class="event-card-detail">
+                            <i class="fas fa-building-columns"></i>
+                            <strong id="reception-place">Salón Imperial</strong>
+                        </p>
+                        <p class="event-card-detail">
+                            <i class="far fa-clock"></i>
+                            <span id="reception-time">7:30 PM</span>
+                        </p>
+                        <p class="event-card-detail">
+                            <i class="fas fa-location-dot"></i>
+                            <span id="reception-address">Dirección del evento</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             5. UBICACIÓN / MAPA
+             ═══════════════════════════════════════════════════ -->
+        <section class="section location-section" id="location">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-map-location-dot"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Ubicación</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
+                    <iframe
+                        src="https://maps.google.com/maps?q=19.4326,-99.1332&z=15&output=embed"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación del evento">
+                    </iframe>
+                </div>
+
+                <a href="#" class="btn-location" id="btn-maps" data-aos="fade-up" data-aos-delay="300" target="_blank" rel="noopener">
+                    <i class="fas fa-diamond-turn-right"></i>
+                    Ver Ubicación
+                </a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             6. DRESS CODE
+             ═══════════════════════════════════════════════════ -->
+        <section class="section dresscode-section" id="dresscode">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Dress Code</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="dresscode-type" data-aos="fade-up">Formal / Elegante</p>
+
+                <div class="dresscode-grid">
+                    <div class="dresscode-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="dresscode-item-icon">
+                            <i class="fas fa-person-dress"></i>
+                        </div>
+                        <h3 class="dresscode-item-label">Damas</h3>
+                        <p class="dresscode-item-desc" id="dresscode-ladies">Vestido largo o cocktail elegante</p>
+                    </div>
+
+                    <div class="dresscode-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="dresscode-item-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="dresscode-item-label">Caballeros</h3>
+                        <p class="dresscode-item-desc" id="dresscode-gentlemen">Traje formal o smoking</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             7. PADRES
+             ═══════════════════════════════════════════════════ -->
+        <section class="section parents-section" id="parents">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-heart"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Con el Amor de mis Padres</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle" data-aos="fade-up">
+                    Con la bendición de Dios y el amor de mis padres,
+tengo el honor de invitarte a celebrar conmigo.
+                </p>
+
+                <div class="parents-grid">
+                    <div class="parent-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="parent-icon"><i class="fas fa-person"></i></div>
+                        <p class="parent-role">Papá</p>
+                        <p class="parent-name" id="father-name">Sr. Juan Carlos García López</p>
+                    </div>
+
+                    <div class="parents-divider" data-aos="fade-up"></div>
+
+                    <div class="parent-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="parent-icon"><i class="fas fa-person-dress"></i></div>
+                        <p class="parent-role">Mamá</p>
+                        <p class="parent-name" id="mother-name">Sra. María Elena Rodríguez de García</p>
+                    </div>
+                </div>
+
+                <!-- Padrinos -->
+                <div class="godparents" data-aos="fade-up" data-aos-delay="300">
+                    <h3 style="font-family: var(--font-heading); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--morado); margin-bottom: 20px;">
+                        Padrinos
+                    </h3>
+                    <div class="parents-grid" style="margin-top: 15px;">
+                        <div class="parent-card">
+                            <p class="parent-role">Padrino</p>
+                            <p class="parent-name" id="godfather-name">Sr. Roberto Hernández</p>
+                        </div>
+                        <div class="parents-divider"></div>
+                        <div class="parent-card">
+                            <p class="parent-role">Madrina</p>
+                            <p class="parent-name" id="godmother-name">Sra. Patricia Mendoza de Hernández</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             8. MI HISTORIA (TIMELINE)
+             ═══════════════════════════════════════════════════ -->
+        <section class="section history-section" id="history">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-book-open"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Mi Historia</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle history-intro" data-aos="fade-up">
+                    Quince años llenos de momentos,
+sonrisas, aprendizajes y personas
+que han dejado huella en mi vida.
+                </p>
+
+                <div class="timeline" id="timeline-container">
+                    <!-- Generado dinámicamente por main.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             9. GALERÍA
+             ═══════════════════════════════════════════════════ -->
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Galería</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <div class="gallery-grid" id="gallery-container">
+                    <!-- Generado dinámicamente por main.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             10. MESA DE REGALOS
+             ═══════════════════════════════════════════════════ -->
+        <section class="section gifts-section" id="gifts">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-gift"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Mesa de Regalos</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle" data-aos="fade-up">
+                    El mejor regalo es compartir este día conmigo.
+                </p>
+
+                <div class="gifts-grid" id="gifts-container">
+                    <!-- Generado dinámicamente por main.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             11. RSVP / CONFIRMACIÓN
+             ═══════════════════════════════════════════════════ -->
+        <section class="section rsvp-section" id="rsvp">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Confirma tu Asistencia</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle rsvp-message" data-aos="fade-up">
+                    Tu presencia hará que este día
+sea aún más especial.
+                </p>
+
+                <form class="rsvp-form" id="rsvp-form" data-aos="fade-up" data-aos-delay="200" novalidate>
+                    <div class="form-group">
+                        <label for="rsvp-name">Nombre completo</label>
+                        <input type="text" id="rsvp-name" placeholder="Escribe tu nombre" required maxlength="100" autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-phone">Teléfono</label>
+                        <input type="tel" id="rsvp-phone" placeholder="Ej: +52 123 456 7890" required maxlength="20" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-guests">Número de acompañantes</label>
+                        <select id="rsvp-guests">
+                            <option value="0">Solo yo</option>
+                            <option value="1">1 acompañante</option>
+                            <option value="2">2 acompañantes</option>
+                            <option value="3">3 acompañantes</option>
+                            <option value="4">4 acompañantes</option>
+                            <option value="5">5 acompañantes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirmación</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="attendance" id="rsvp-yes" value="yes">
+                                <label for="rsvp-yes">
+                                    <i class="fas fa-check-circle"></i>
+                                    Sí asistiré
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="attendance" id="rsvp-no" value="no">
+                                <label for="rsvp-no">
+                                    <i class="fas fa-times-circle"></i>
+                                    No podré asistir
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fab fa-whatsapp"></i>
+                        Confirmar Asistencia
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             12. LIBRO DE FIRMAS
+             ═══════════════════════════════════════════════════ -->
+        <section class="section guestbook-section" id="guestbook">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-feather-pointed"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Deja un Mensaje</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle" data-aos="fade-up">
+                    Escribe tus buenos deseos para este día tan especial.
+                </p>
+
+                <form class="guestbook-form" id="guestbook-form" data-aos="fade-up" data-aos-delay="100" novalidate>
+                    <div class="form-group">
+                        <label for="guestbook-name">Tu nombre</label>
+                        <input type="text" id="guestbook-name" placeholder="Escribe tu nombre" required maxlength="60">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guestbook-message">Tu mensaje</label>
+                        <textarea id="guestbook-message" rows="4" placeholder="Escribe tus buenos deseos..." required maxlength="500"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensaje
+                    </button>
+                </form>
+
+                <div class="messages-container" id="messages-container">
+                    <!-- Mensajes cargados dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             13. CÓDIGO QR
+             ═══════════════════════════════════════════════════ -->
+        <section class="section qr-section" id="qr">
+            <div class="container">
+                <div class="section-icon" data-aos="fade-down">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+
+                <h2 class="section-title" data-aos="fade-up">Escanea la Invitación</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <p class="section-subtitle" data-aos="fade-up">
+                    Comparte esta invitación escaneando el código QR.
+                </p>
+
+                <div class="qr-container" data-aos="zoom-in" data-aos-delay="200">
+                    <div id="qr-code"></div>
+                </div>
+
+                <br>
+
+                <button class="btn-download-qr" id="download-qr" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-download"></i>
+                    Descargar QR
+                </button>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             14. COMPARTIR
+             ═══════════════════════════════════════════════════ -->
+        <section class="share-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" style="color: var(--morado);">Comparte la Invitación</h2>
+                <div class="section-divider" data-aos="fade-up"></div>
+
+                <button class="btn-share" id="share-btn" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-share-nodes"></i>
+                    Compartir Invitación
+                </button>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             FOOTER
+             ═══════════════════════════════════════════════════ -->
+        <footer class="footer">
+            <p class="footer-name">Melissa</p>
+            <p class="footer-date">15 de Noviembre de 2026</p>
+            <div class="gold-line" style="margin: 20px auto;"></div>
+            <p class="footer-credits">
+                ✨ Invitación Digital con amor ✨
+            </p>
+        </footer>
+
+    </main><!-- /.main-content -->
+
+    <!-- ═══════════════════════════════════════════════════════
+         NAVEGACIÓN FLOTANTE
+         ═══════════════════════════════════════════════════════ -->
+    <nav class="floating-nav" aria-label="Navegación principal">
+        <a href="#welcome" title="Inicio">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="#history" title="Mi Historia">
+            <i class="fas fa-book-open"></i>
+            <span>Historia</span>
+        </a>
+        <a href="#event" title="Evento">
+            <i class="fas fa-calendar-days"></i>
+            <span>Evento</span>
+        </a>
+        <a href="#gallery" title="Galería">
+            <i class="fas fa-images"></i>
+            <span>Galería</span>
+        </a>
+        <a href="#rsvp" title="RSVP">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>RSVP</span>
+        </a>
+    </nav>
+
+    <!-- Botón hamburguesa (móvil) -->
+    <button class="nav-toggle" aria-label="Abrir menú de navegación">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Botones de acción flotantes -->
+    <div class="floating-actions">
+        <button class="fab-btn" id="fab-location" title="Ver ubicación" aria-label="Ver ubicación del evento">
+            <i class="fas fa-location-dot"></i>
+        </button>
+        <button class="fab-btn whatsapp" id="fab-whatsapp" title="WhatsApp" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         LIGHTBOX (GALERÍA)
+         ═══════════════════════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Visor de imágenes">
+        <div class="lightbox-close" role="button" tabindex="0" aria-label="Cerrar">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="lightbox-nav lightbox-prev" role="button" tabindex="0" aria-label="Imagen anterior">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="Foto de galería">
+        <div class="lightbox-nav lightbox-next" role="button" tabindex="0" aria-label="Imagen siguiente">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="lightbox-counter"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MODAL COMPARTIR (Fallback)
+         ═══════════════════════════════════════════════════════ -->
+    <div class="share-modal" role="dialog" aria-label="Compartir invitación">
+        <div class="share-modal-content">
+            <h3 class="share-modal-title">Compartir Invitación</h3>
+            <div class="share-options">
+                <div class="share-option wa" id="share-wa" title="WhatsApp" role="button" tabindex="0">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="share-option fb" id="share-fb" title="Facebook" role="button" tabindex="0">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="share-option copy" id="share-copy" title="Copiar enlace" role="button" tabindex="0">
+                    <i class="fas fa-link"></i>
+                </div>
+            </div>
+            <p class="share-modal-close">Cerrar</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SCRIPTS
+         ═══════════════════════════════════════════════════════ -->
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.1/sweetalert2.all.min.js"></script>
+
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Configuración -->
+    <script src="config.js"></script>
+
+    <!-- Módulos propios -->
+    <script src="js/music.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/rsvp.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registrado:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker error:', error);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Maps URL from config -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mapsBtn = document.getElementById('btn-maps');
+            if (mapsBtn && window.invitationConfig) {
+                mapsBtn.href = window.invitationConfig.mapsUrl;
+            }
+        });
+    </script>
+</body>
+</html>
